@@ -1,8 +1,10 @@
 body {
-  background: #f1f1f1;
-  height: 100vh;
+  /* background: #f1f1f1; */
+  background: #000;
+  margin: 0;
+  padding: 0;
 }
 
 #three-canvas-container {
-  height: 100vh;
+  height: 100vh !important;
 }
