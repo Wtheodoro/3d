@@ -90,7 +90,7 @@ const Three = () => {
       {/* <directionalLight args={['#FFFFFF', 1]} position={[-3, 2, 0]} /> */}
 
       {/* POINT LIGHT */}
-      {/* <pointLight args={['#FFFFFF', 1]} position={[-3, 1, 0]} /> */}
+      <pointLight args={['#FFFFFF', 1]} position={[-3, 1, 0]} />
 
       {/* SPOTLIGHT LIGHT*/}
       <spotLight
