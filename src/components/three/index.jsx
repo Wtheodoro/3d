@@ -8,6 +8,7 @@ import { useEffect, useRef } from 'react'
 import { degreesToRaidans } from '../../utils/angleConvert'
 import * as THREE from 'three'
 import gsap from 'gsap'
+import { CyberpunkCar } from './CyberpunkCar'
 
 const Three = () => {
   const orbitControlsRef = useRef(null)
@@ -31,10 +32,6 @@ const Three = () => {
   useEffect(() => {
     if (!ballRef.current) return
 
-    // To combine animation we need a time line
-    // Time line
-    const timeline = gsap.timeline()
-
     // x-axis motion
     gsap.to(ballRef.current.position, {
       x: 3,
@@ -50,25 +47,29 @@ const Three = () => {
         duration: 1.5,
         ease: 'bounce.out',
       },
-      '<'
+      '<' // this last parameter means that this animation starts simultaneously with the previous animation
     )
-
-    // play
-    // timeline.play()
   }, [ballRef.current])
 
   return (
     <>
       {/* CAMERA */}
-      <PerspectiveCamera makeDefault position={[0, 1, 10]} />
+      <PerspectiveCamera makeDefault position={[3, 2, 8]} />
       <OrbitControls
         ref={orbitControlsRef}
         minPolarAngle={degreesToRaidans(30)}
         maxPolarAngle={degreesToRaidans(80)}
       />
 
+      {/* CyberpunkCar */}
+      <CyberpunkCar
+        scale={0.01}
+        position={[0, 1.4, -3]}
+        rotation={[0, degreesToRaidans(110), 0]}
+      />
+
       {/* BALL */}
-      <mesh position={[1, 3, 0]} castShadow ref={ballRef}>
+      <mesh position={[0, 3, 0]} castShadow ref={ballRef}>
         <sphereGeometry args={[0.5, 32, 32]} />
         <meshStandardMaterial color='#FFFFFF' metalness={0.6} roughness={0.4} />
       </mesh>
@@ -93,8 +94,8 @@ const Three = () => {
 
       {/* SPOTLIGHT LIGHT*/}
       <spotLight
-        args={['#FFFFFF', 1.5, 7, degreesToRaidans(45), 0.4]}
-        position={[-3, 1, 0]}
+        args={['#FFFFFF', 2, 20, degreesToRaidans(60), 0.6]}
+        position={[-7, 15, -1]}
         castShadow
       />
 
