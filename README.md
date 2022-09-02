@@ -1,7 +1,6 @@
 just for study purpose
 
 Check the deploy [`preview`](http://3d.walisontsx.com/)
-Check the deploy [`preview`](https://3d-zeta.vercel.app/)
 
 # SHADOWS
 
